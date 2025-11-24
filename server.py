@@ -31,6 +31,14 @@ app.mount("/static", StaticFiles(directory="."), name="static")
 def read_root():
     return FileResponse('index.html')
 
+@app.get("/app.js")
+def get_app_js():
+    return FileResponse('app.js')
+
+@app.get("/styles.css")
+def get_styles_css():
+    return FileResponse('styles.css')
+
 MODEL = None
 MODEL_PATH = os.path.join(os.path.dirname(__file__) or ".", "gesture_model.pkl")
 LAST_LOAD_ERROR = None
