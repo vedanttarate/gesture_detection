@@ -47,6 +47,7 @@ env/
 *.csv
 *.log
 .env
+cmi.zip
 
 # OS
 Thumbs.db
