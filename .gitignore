@@ -43,6 +43,7 @@ env/
 
 # Project specific
 *.pkl
+!gesture_detection.pkl
 *.joblib
 *.csv
 *.log
