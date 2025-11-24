@@ -32,7 +32,7 @@ def read_root():
     return FileResponse('index.html')
 
 MODEL = None
-MODEL_PATH = os.path.join(os.path.dirname(__file__) or ".", "gesture_detection.pkl")
+MODEL_PATH = os.path.join(os.path.dirname(__file__) or ".", "gesture_model.pkl")
 LAST_LOAD_ERROR = None
 MODEL_PATH_TRIED = None
 
