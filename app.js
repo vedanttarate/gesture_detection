@@ -21,8 +21,8 @@ Usage: open `index.html` in a browser served from a static file server (or just 
 upload CSV, select rows, press "Send selected to model".
 */
 
-// Default to local FastAPI server. Change if your API runs elsewhere.
-const API_URL = 'http://localhost:8000/predict'; // change to full URL if needed
+// Use relative URL since frontend and backend are served from same domain
+const API_URL = '/predict';
 
 // Gesture label mapping
 const GESTURE_LABELS = {

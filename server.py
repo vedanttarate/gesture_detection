@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from typing import List, Dict, Any
 import os
 import logging
@@ -21,6 +23,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Serve static files
+app.mount("/static", StaticFiles(directory="."), name="static")
+
+@app.get("/")
+def read_root():
+    return FileResponse('index.html')
 
 MODEL = None
 MODEL_PATH = os.path.join(os.path.dirname(__file__) or ".", "gesture_detection.pkl")
