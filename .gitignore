@@ -49,6 +49,7 @@ env/
 *.log
 .env
 cmi.zip
+cmi/
 
 # OS
 Thumbs.db
