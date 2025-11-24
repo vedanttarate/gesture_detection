@@ -81,10 +81,18 @@ def load_model(path: str = None):
 @app.get("/model_info")
 def model_info():
     """Return debug info about model load for diagnosing 503 errors."""
+    cwd = os.path.dirname(__file__) or "."
+    files = os.listdir(cwd)
+    pkl_files = [f for f in files if f.endswith(('.pkl', '.joblib', '.sav'))]
+    
     return {
         "model_loaded": MODEL is not None,
         "model_path_tried": MODEL_PATH_TRIED,
         "last_load_error": LAST_LOAD_ERROR,
+        "current_directory": cwd,
+        "all_files": files[:20],  # limit to first 20 files
+        "pkl_files_found": pkl_files,
+        "expected_model_path": MODEL_PATH,
     }
 
 
